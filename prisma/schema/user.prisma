@@ -1,0 +1,16 @@
+model User {
+  id       String   @id @default(uuid())
+  name     String
+  email    String   @unique
+  password String
+}
+
+model Otp {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique             
+  otp       String
+  isVerified Boolean @default(false)
+  expiresAt DateTime                               
+
+  @@index([email])
+}

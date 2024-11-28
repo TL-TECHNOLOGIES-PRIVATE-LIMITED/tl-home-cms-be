@@ -1,0 +1,11 @@
+model Client {
+  id          String   @id @default(uuid())
+  name        String
+  logo        String   // URL/path to client's logo
+  website     String?  // Optional website URL
+  description String?  @db.Text  // Optional description of the client/partnership
+  isActive    Boolean  @default(true)
+  order       Int      @db.Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+} 

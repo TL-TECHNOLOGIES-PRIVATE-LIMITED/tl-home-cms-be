@@ -1,0 +1,10 @@
+model GoogleAnalytics {
+  id              String   @id @default(uuid())
+  trackingId      String   // GA4 Measurement ID (G-XXXXXXXXXX)
+  propertyId      String   // GA4 Property ID
+  viewId          String?  // Optional View ID
+  apiKey          String?  // API key for server-side access
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+} 

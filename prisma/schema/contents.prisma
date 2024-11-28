@@ -1,0 +1,42 @@
+model Blog {
+  id        String   @id @default(uuid())
+  title     String
+  author    String
+  date      DateTime
+  image     String
+  excerpt   String   @db.Text
+  content   String   @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([date])
+  @@index([author])
+  @@index([createdAt])
+} 
+
+model Testimonial {
+  id        String   @id @default(uuid())
+  text      String   @db.Text
+  author    String
+  position  String
+  rating    Int      @db.Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+} 
+
+model Catalogue {
+  id          String   @id @default(uuid())
+  title       String
+  description String   @db.Text
+  image       String   // URL/path to catalogue image
+  file        String?  // URL/path to downloadable PDF/document
+  category    String?  // Optional category/type of catalogue
+  isActive    Boolean  @default(true)
+  order       Int      @db.Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([category])
+  @@index([isActive])
+  @@index([order])
+} 

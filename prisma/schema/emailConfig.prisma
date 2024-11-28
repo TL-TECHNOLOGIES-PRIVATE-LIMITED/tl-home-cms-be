@@ -1,0 +1,11 @@
+
+
+
+model EmailConfig {
+  id       String   @id @default(uuid())
+  host     String  
+  port     Int     
+  secure   Boolean 
+  authUser String  
+  authPass String
+}
